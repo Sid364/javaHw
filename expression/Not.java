@@ -1,9 +1,9 @@
 public class Not extends UnaryOperation {
-    Not(Expression3 exp) {
+    Not(Expression3 exp)  {
         super(exp);
     }
     
-    public int evaluate(int x, int y, int z) {
+    public int evaluate(int x, int y, int z) throws ExpressionExceptions {
         return ~exp.evaluate(x, y, z);
     }
 }
