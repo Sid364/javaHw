@@ -1,14 +1,8 @@
-public class Add extends BinaryOperation {
-    public Add(Expression3 f, Expression3 s) {
+public class Add<T extends Number> extends BinaryOperation<T> {
+    public Add(Expression3<T> f, Expression3<T> s) {
         super(f, s);
     }
-    public int solve(int a, int b) throws ExpressionExceptions {
-		//if (b > 0 && a  >  Integer.MAX_VALUE - b
-        //|| (b < 0 && a < Integer.MIN_VALUE - b))
-        long f = a, s = b;
-			if ( f + s > Integer.MAX_VALUE ||
-				f + s < Integer.MIN_VALUE)
-			throw new ExpressionExceptions("overflow");
-		return a + b;
+    public T solve(T a, T b, Arithmetic<T> A) throws ExpressionExceptions {
+		return A.add(a, b);
 	}
 }

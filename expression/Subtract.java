@@ -1,11 +1,8 @@
-public class Subtract extends BinaryOperation {
-    public Subtract(Expression3 f, Expression3 s) {
+public class Subtract<T extends Number> extends BinaryOperation<T> {
+    public Subtract(Expression3<T> f, Expression3<T> s) {
         super(f, s);
     }
-    public int solve(int a, int b) throws ExpressionExceptions {
-		if ((b < 0 && a > Integer.MAX_VALUE + b) ||
-			 b > 0 && a < Integer.MIN_VALUE + b) 
-			throw new ExpressionExceptions("overflow");
-		return a - b;
+    public T solve(T a, T b, Arithmetic<T> A) throws ExpressionExceptions {
+		return A.sub(a, b);
 	}
 }

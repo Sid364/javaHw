@@ -1,10 +1,10 @@
-public class Mod extends BinaryOperation {
-	Mod(Expression3 a, Expression3 b) {
+public class Mod<T extends Number> extends BinaryOperation<T> {
+	Mod(Expression3<T> a, Expression3<T> b) {
 		super(a, b);
 	}
-	public int solve(int a, int b) throws ExpressionExceptions {
-		if (b == 0) 
+	public T solve(T a, T b, Arithmetic<T> A) throws ExpressionExceptions {
+		if (b.intValue() == 0) 
 			throw new ExpressionExceptions("mod by zero, silly");
-		return a % b;
+		return A.mod(a, b);
 	}
 }

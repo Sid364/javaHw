@@ -1,9 +1,9 @@
-public class UnaryMinus extends UnaryOperation {
-    UnaryMinus(Expression3 exp) {
+public class UnaryMinus<T extends Number> extends UnaryOperation<T> {
+    UnaryMinus(Expression3<T> exp) {
         super(exp);
     }
     
-    public int evaluate(int x, int y, int z) throws ExpressionExceptions {
-        return -exp.evaluate(x, y, z);
+    public T evaluate(T x, T y, T z, Arithmetic<T> A) throws ExpressionExceptions {
+        return A.neg(exp.evaluate(x, y, z, A));
     }
 }

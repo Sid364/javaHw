@@ -1,12 +1,8 @@
-public class Multiply extends BinaryOperation {
-    public Multiply(Expression3 f, Expression3 s) {
+public class Multiply<T extends Number> extends BinaryOperation<T> {
+    public Multiply(Expression3<T> f, Expression3<T> s) {
         super(f, s);
     }
-    public int solve(int a, int b) throws ExpressionExceptions {
-		long f = a, s = b;
-			if ( f * s > Integer.MAX_VALUE ||
-				f * s < Integer.MIN_VALUE)
-			throw new ExpressionExceptions("overflow"); 
-		return a * b;
+    public T solve(T a, T b, Arithmetic<T> A) throws ExpressionExceptions {
+		return A.mul(a, b);
 	}
 }
